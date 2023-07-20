@@ -2,10 +2,23 @@
 <html>
 <body>
 
-<p id="demo"></p>
+<p id="date"></p>
 
+<script src="https://cdn.bootcdn.net/ajax/libs/lunar-calendar/1.0.0/LunarCalendar.min.js"></script>
 <script>
-document.getElementById("demo").innerHTML = new Date().toDateString();
+    var today = new Date();
+    var dd = String(today.getDate()).padStart(2, '0');
+    var mm = String(today.getMonth() + 1).padStart(2, '0'); 
+    var yyyy = today.getFullYear();
+    var hh = String(today.getHours()).padStart(2, '0');
+    var min = String(today.getMinutes()).padStart(2, '0');
+    var ss = String(today.getSeconds()).padStart(2, '0');
+
+    var solarDate = yyyy + '年' + mm + '月' + dd + '日 ';
+    var lunarDate = LunarCalendar.solarToLunar(yyyy,mm,dd); // convert solar to lunar date
+    var time = hh + ':' + min + ':' + ss;
+
+    document.getElementById("date").innerHTML = "阳历：" + solarDate + "<br>阴历：" + lunarDate.GanZhiYear + '年' + lunarDate.lunarMonthName + lunarDate.lunarDayName + "<br>时间：" + time;
 </script>
 
 </body>
