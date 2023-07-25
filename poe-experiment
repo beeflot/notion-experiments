@@ -1,3 +1,4 @@
+<html>
 <head>
 <title>网页版poe</title>
 <style>
@@ -59,3 +60,4 @@ window.onload = showData;
 </tr>
 </table>
 </body>
+</html>
